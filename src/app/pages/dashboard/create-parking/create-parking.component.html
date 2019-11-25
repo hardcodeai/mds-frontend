@@ -1,0 +1,60 @@
+<h3>
+  Parking Details
+</h3>
+<!-- <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off"> -->
+<form #form="ngForm" autocomplete="off" (submit)="submitParkingArea()">
+  <div class="form-group">
+    <label>LENGTH</label>
+    <input
+      type="number"
+      name="length"
+      #length="ngModel"
+      class="form-control"
+      [(ngModel)]="parkingArea.length"
+      required
+    />
+    <div
+      *ngIf="length.errors && (length.invalid || length.touched)"
+      class="validation-error"
+    >
+      This field is required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>BREADTH</label>
+    <input
+      type="number"
+      name="breadth"
+      #width="ngModel"
+      class="form-control"
+      [(ngModel)]="parkingArea.breadth"
+      required
+    />
+    <div
+      *ngIf="width.errors && (width.invalid || width.touched)"
+      class="validation-error"
+    >
+      This field is required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>PARKING AREA</label>
+    <input
+      type="number"
+      name="area"
+      #area="ngModel"
+      class="form-control"
+      [(ngModel)]="parkingArea.minArea"
+      required
+    />
+    <div
+      *ngIf="area.errors && (area.invalid || area.touched)"
+      class="validation-error"
+    >
+      This field is required.
+    </div>
+  </div>
+  <button class="btn btn-primary" type="submit">Submit Details</button>
+</form>

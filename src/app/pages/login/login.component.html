@@ -1,0 +1,33 @@
+<div class="card">
+  <img class="mb-3" src="https://img.icons8.com/android/96/000000/user.png" />
+  <form
+    #userLogin="ngForm"
+    (submit)="submitLogin()"
+    class="text-center"
+    autocomplete="off"
+  >
+    <p class="">Sign in</p>
+    <input
+      type="email"
+      id="defaultLoginFormEmail"
+      name="email"
+      #username="ngModel"
+      class="form-control mb-3"
+      [(ngModel)]="loginFormDetails.email"
+      email
+      placeholder="E-mail"
+    />
+    <input
+      type="password"
+      id="defaultLoginFormPassword"
+      name="password"
+      #password="ngModel"
+      class="form-control mb-3"
+      [(ngModel)]="loginFormDetails.password"
+      placeholder="Password"
+    />
+    <button class="btn btn-info mb-3" type="submit">
+      Sign in
+    </button>
+  </form>
+</div>

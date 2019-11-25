@@ -1,0 +1,47 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Park/Unpark</th>
+      <th>
+        Slot Number
+      </th>
+      <th>
+        Vehicle Number
+      </th>
+    </tr>
+  </thead>
+  <tbody *ngIf="slotMan?.length; else noMessage">
+    <tr *ngFor="let item of slotMan">
+      <td>
+        <div class="custom-control custom-switch">
+          <input
+            type="checkbox"
+            class="custom-control-input bg-success"
+            id="{{ 'customSwitch' + '_' + item.slot }}"
+            [checked]="item.isParked"
+            (change)="call($event.target.checked, item)"
+          />
+          <label
+            class="custom-control-label"
+            for="{{ 'customSwitch' + '_' + item.slot }}"
+            >{{ item.isParked ? "Parked" : "Availaible" }}</label
+          >
+        </div>
+      </td>
+      <td>{{ item.slot + 1 }}</td>
+      <td>
+        <input
+          type="text"
+          class="vehicleNumber form-control"
+          id="{{ 'vehicleInput' + '_' + item.slot }}"
+          [disabled]="item.isParked"
+          [(ngModel)]="item.vnumber"
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #noMessage>
+  <p>No number of slots available.</p>
+</ng-template>

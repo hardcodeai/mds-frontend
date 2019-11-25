@@ -1,0 +1,14 @@
+<div class="jumbotron">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+        <app-create-parking
+          (slotsChange)="updateNumberOfSlots($event)"
+        ></app-create-parking>
+      </div>
+      <div class="col-md-8">
+        <app-slots [slotCount]="numberOfSlots"></app-slots>
+      </div>
+    </div>
+  </div>
+</div>
